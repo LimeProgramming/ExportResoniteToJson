@@ -89,7 +89,6 @@ namespace ExportResoniteToJson
                 modelFormats.Add("LZ4BSON");
             }
 
-
             if ( (Config.GetValue(EXPORT_JSON)) || (Config.GetValue(EXPORT_BSON)) || (Config.GetValue(EXPORT_7ZBSON)) || !(Config.GetValue(EXPORT_LZ4BSON)) )
             {
                 formatsField.SetValue(null, modelFormats.ToArray());
