@@ -25,28 +25,29 @@ namespace ExportResoniteToJson
 
         private static ModConfiguration Config;
 
-
+        [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<bool> EXPORT_JSON = new ModConfigurationKey<bool>(
             "Export Json Type", "Enable exprting to Json file type. Changing this setting requires a game restart to apply.", 
             () => true
         );
 
+        [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<bool> EXPORT_BSON = new ModConfigurationKey<bool>(
             "Export Bson Type", "Enable exprting to Bson file type. Changing this setting requires a game restart to apply.", 
             () => false
         );
 
+        [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<bool> EXPORT_7ZBSON = new ModConfigurationKey<bool>(
             "Export 7zbon Type", "Enable exprting to 7zbon file type. Changing this setting requires a game restart to apply.",
             () => false
         );
 
+        [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<bool> EXPORT_LZ4BSON = new ModConfigurationKey<bool>(
             "Export LZ4BSON Type", "Enable exprting to LZ4BSON file type. Changing this setting requires a game restart to apply.", 
             () => false
         );
-
-
 
 
 
@@ -247,7 +248,6 @@ namespace ExportResoniteToJson
             return true; // call original function
         }
 
-
         public static bool Load_Prefix(ref DataTreeDictionary __result, string file, string ext = null)
         {
             if (ext == null)
@@ -273,28 +273,7 @@ namespace ExportResoniteToJson
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
 
 
 }
