@@ -16,7 +16,7 @@ namespace ExportResoniteToJson
     {
         public override string Name => "ExportResoniteToJson";
         public override string Author => "CalamityLime";
-        public override string Version => "2.1.1";
+        public override string Version => "2.1.2";
         public override string Link => "https://github.com/LimeProgramming/ExportNeosToJson";
 
 
@@ -69,7 +69,7 @@ namespace ExportResoniteToJson
                 return;
             }
 
-            MethodInfo dtcSupportedPrefix = AccessTools.DeclaredMethod(typeof(ExportResoniteToJson), nameof(IsSupportedFormat));
+            MethodInfo dtcSupportedPrefix = AccessTools.DeclaredMethod(typeof(ExportResoniteToJson), nameof(ExportResoniteToJson.IsSupportedFormat));
             harmony.Patch(dtcSupportedOrigional, prefix: new HarmonyMethod(dtcSupportedPrefix));
 
 
@@ -89,7 +89,8 @@ namespace ExportResoniteToJson
                 return;
             }
 
-            MethodInfo dtcPrefix = AccessTools.DeclaredMethod(typeof(ExportResoniteToJson), nameof(ExportModelPrefix));
+            MethodInfo dtcLoadPrefix = AccessTools.DeclaredMethod(typeof(ExportResoniteToJson), nameof(ExportResoniteToJson.Load_Prefix));
+            harmony.Patch(dtcLoadOrigional, prefix: new HarmonyMethod(dtcLoadPrefix));
 
 
         }
@@ -191,22 +192,7 @@ namespace ExportResoniteToJson
         }
 
 
-        public static DataTreeDictionary FromJSON(string json)
-        {
-            DataTreeDictionary dataTreeDictionary;
-            using (StringReader stringReader = new StringReader(json))
-            {
-                using (JsonTextReader jsonTextReader = new JsonTextReader(stringReader))
-                {
-                    dataTreeDictionary = (DataTreeDictionary)AccessTools.Method(typeof(DataTreeConverter), "Read", null, null).Invoke(null, new object[] { jsonTextReader });
-
-                }
-            }
-            return dataTreeDictionary;
-        }
-
-
-        public static bool Load(ref DataTreeDictionary __result, string file, string ext = null)
+        public static bool Load_Prefix(ref DataTreeDictionary __result, string file, string ext = null)
         {
             if (ext == null)
             {
@@ -214,7 +200,11 @@ namespace ExportResoniteToJson
             }
             if (ext == "json")
             {
-                __result = ExportResoniteToJson.FromJSON(File.ReadAllText(file));
+                using (StringReader stringReader = new StringReader(File.ReadAllText(file)))
+                using (JsonTextReader jsonTextReader = new JsonTextReader(stringReader))
+                {
+                    __result = (DataTreeDictionary)AccessTools.Method(typeof(DataTreeConverter), "Read", null, null).Invoke(null, new object[] { jsonTextReader });
+                }
                 return false;
             }
             else
@@ -224,8 +214,6 @@ namespace ExportResoniteToJson
 
 
         }
-
-
 
     }
 }
