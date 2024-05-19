@@ -20,8 +20,43 @@ namespace ExportResoniteToJson
         public override string Link => "https://github.com/LimeProgramming/ExportNeosToJson";
 
 
+        // ------------------------------------------------------------------------------------------ //
+        /* ========== Register Mod Config Data/Keys ========== */
+
+        private static ModConfiguration Config;
+
+
+        private static readonly ModConfigurationKey<bool> EXPORT_JSON = new ModConfigurationKey<bool>(
+            "Export Json Type", "Enable exprting to Json file type. Changing this setting requires a game restart to apply.", 
+            () => true
+        );
+
+        private static readonly ModConfigurationKey<bool> EXPORT_BSON = new ModConfigurationKey<bool>(
+            "Export Bson Type", "Enable exprting to Bson file type. Changing this setting requires a game restart to apply.", 
+            () => false
+        );
+
+        private static readonly ModConfigurationKey<bool> EXPORT_7ZBSON = new ModConfigurationKey<bool>(
+            "Export 7zbon Type", "Enable exprting to 7zbon file type. Changing this setting requires a game restart to apply.",
+            () => false
+        );
+
+        private static readonly ModConfigurationKey<bool> EXPORT_LZ4BSON = new ModConfigurationKey<bool>(
+            "Export LZ4BSON Type", "Enable exprting to LZ4BSON file type. Changing this setting requires a game restart to apply.", 
+            () => false
+        );
+
+
+
+
+
+        // ------------------------------------------------------------------------------------------ //
+        /* ========== Our Hook into the game ========== */
+
         public override void OnEngineInit()
         {
+            Config = GetConfiguration(); //Get this mods' current ModConfiguration
+
             Harmony harmony = new Harmony("net.CalamityLime.ExportResoniteToJson");
             FieldInfo formatsField = AccessTools.DeclaredField(typeof(ModelExportable), "formats");
             if (formatsField == null)
@@ -32,11 +67,32 @@ namespace ExportResoniteToJson
 
             // inject addional formats
             List<string> modelFormats = new List<string>((string[])formatsField.GetValue(null));
-            modelFormats.Add("JSON");
-            modelFormats.Add("BSON");
-            modelFormats.Add("7ZBSON");
-            modelFormats.Add("LZ4BSON");
-            formatsField.SetValue(null, modelFormats.ToArray());
+
+            if (Config.GetValue(EXPORT_JSON))
+            {
+                modelFormats.Add("JSON");
+            }
+
+            if (Config.GetValue(EXPORT_BSON))
+            {
+                modelFormats.Add("BSON");
+            }
+
+            if (Config.GetValue(EXPORT_7ZBSON))
+            {
+                modelFormats.Add("7ZBSON");
+            }
+
+            if (Config.GetValue(EXPORT_LZ4BSON))
+            {
+                modelFormats.Add("LZ4BSON");
+            }
+
+
+            if ( (Config.GetValue(EXPORT_JSON)) || (Config.GetValue(EXPORT_BSON)) || (Config.GetValue(EXPORT_7ZBSON)) || !(Config.GetValue(EXPORT_LZ4BSON)) )
+            {
+                formatsField.SetValue(null, modelFormats.ToArray());
+            }
 
 
             // ---------- Patch the Export Model function ----------
@@ -215,5 +271,30 @@ namespace ExportResoniteToJson
 
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
 }
