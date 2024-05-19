@@ -7,9 +7,9 @@ Bson, 7zbson, and lz4bson files can be reimported into the game easily by anyone
 
 ## Installation
 1. Install [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader).
-2. Place [ExportResoniteToJson-Standalone.dll](https://github.com/zkxs/ExportNeosToJson/releases/latest/download/ExportNeosToJson.dll) into your `nml_mods` folder **if** You *don't* use a local storage mod.
+2. Place [ExportResoniteToJson-Standalone.dll](https://github.com/LimeProgramming/ExportResoniteToJson/releases/download/2.1.3/ExportResoniteToJson-Standalone.dll) into your `rml_mods` folder **if** You *don't* use a local storage mod.
 OR
-2. Place [ExportResoniteToJson-LocalStorage.dll](https://github.com/zkxs/ExportNeosToJson/releases/latest/download/ExportNeosToJson.dll) into your `nml_mods` folder **if** You *do* use a local storage mod.
+2. Place [ExportResoniteToJson-LocalStorage.dll](https://github.com/LimeProgramming/ExportResoniteToJson/releases/download/2.1.3/ExportResoniteToJson-LocalStorage.dll) into your `rml_mods` folder **if** You *do* use a local storage mod.
 4. Start the game. If you want to verify that the mod is working you can check your Resonite logs.
 
 > [!Note]
