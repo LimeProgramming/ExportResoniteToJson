@@ -10,7 +10,7 @@ Bson, 7zbson, and lz4bson files can be reimported into the game easily by anyone
 2. Place [ExportResoniteToJson-Standalone.dll](https://github.com/zkxs/ExportNeosToJson/releases/latest/download/ExportNeosToJson.dll) into your `nml_mods` folder **if** You *don't* use a local storage mod.
 OR
 2. Place [ExportResoniteToJson-LocalStorage.dll](https://github.com/zkxs/ExportNeosToJson/releases/latest/download/ExportNeosToJson.dll) into your `nml_mods` folder **if** You *do* use a local storage mod.
-4. Start the game. If you want to verify that the mod is working you can check your Neos logs.
+4. Start the game. If you want to verify that the mod is working you can check your Resonite logs.
 
 > [!Note]
 > This is a fork of [ExportNeosToJson](https://github.com/zkxs/ExportNeosToJson) which was originally made by zkxs and updated for Resonite by Calamity Lime. Ever want to feel like a Resonite developer? just find and replace "Neos" with "Resonite", lol there's more to it then that but it felt that way at times.
