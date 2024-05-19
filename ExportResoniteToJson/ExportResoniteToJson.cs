@@ -16,7 +16,7 @@ namespace ExportResoniteToJson
     {
         public override string Name => "ExportResoniteToJson";
         public override string Author => "CalamityLime";
-        public override string Version => "2.1.2";
+        public override string Version => "2.1.3";
         public override string Link => "https://github.com/LimeProgramming/ExportNeosToJson";
 
 
@@ -133,7 +133,6 @@ namespace ExportResoniteToJson
 
 
             // ---------- Patch the DataTreeDictionary Load function ----------
-
             MethodInfo dtcLoadOrigional = AccessTools.DeclaredMethod(typeof(DataTreeConverter), nameof(DataTreeConverter.Load), new Type[]
             {
                 typeof(string),
@@ -148,9 +147,9 @@ namespace ExportResoniteToJson
 
             MethodInfo dtcLoadPrefix = AccessTools.DeclaredMethod(typeof(ExportResoniteToJson), nameof(ExportResoniteToJson.Load_Prefix));
             harmony.Patch(dtcLoadOrigional, prefix: new HarmonyMethod(dtcLoadPrefix));
-
-
         }
+
+
 
 
         // ------------------------------------------------------------------------------------------ //
@@ -234,7 +233,10 @@ namespace ExportResoniteToJson
         }
 
 
+
+
         // ------------------------------------------------------------------------------------------ //
+        // Re-implement loading json files since resonite dropped that. This is an issue for Local storage mod since it does the same thing
 
         public static bool IsSupportedFormat(ref bool __result, string file)
         {
