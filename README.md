@@ -1,3 +1,5 @@
+> [!WARNING]
+> It is unlikely that I will maintain this, if it breaks, it breaks.<br>If I find out that it's broken and cannot be arsed to fix it, I'll take down the repo at some stage; likely long after it has broken. 
 
 # ExportResoniteToJson
 
