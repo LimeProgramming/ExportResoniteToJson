@@ -15,8 +15,7 @@ OR
 4. Start the game. If you want to verify that the mod is working you can check your Resonite logs.
 
 > [!Note]
-> This is a fork of [ExportNeosToJson](https://github.com/zkxs/ExportNeosToJson) which was originally made by zkxs and updated for Resonite by Calamity Lime. Ever want to feel like a Resonite developer? just find and replace "Neos" with "Resonite", lol there's more to it then that but it felt that way at times.
-
+> This is a fork of [ExportNeosToJson](https://github.com/zkxs/ExportNeosToJson) which was originally made by zkxs and updated for Resonite by Calamity Lime.
 
 ## What does this actually do?
 It injects additional json, bson, 7zbson, and lz4bson options into the export dialog and restores importing json file into the game.
