@@ -5,7 +5,7 @@
 
 A [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader) mod for [Resonite](https://resonite.com/) that allows exporting items as json, bson, 7zbson, and lz4bson files. This allows items to be backed up locally, as well as letting you edit normally inaccessible internals, such as arrays. Note that assets behave in weird ways and will only be linked to. 
 
-Bson, 7zbson, and lz4bson files can be reimported into the game easily by anyone, without needing a mod. Json importing *should* work for people who have a local storage mod. 
+Brson, 7zbson, and lz4bson files can be reimported into the game easily by anyone, without needing a mod. Json importing *should* work for people who have a local storage mod. 
 
 ## Installation
 1. Install [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader).
@@ -19,3 +19,6 @@ OR
 
 ## What does this actually do?
 It injects additional json, bson, 7zbson, and lz4bson options into the export dialog and restores importing json file into the game.
+
+## Issues
+The export window is too small. If someone can be bothered to fix that, that would be great.
