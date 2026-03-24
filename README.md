@@ -20,4 +20,4 @@ It injects additional json, bson, 7zbson, and lz4bson options into the export di
 
 ## Known Issues
 * The export window in Resonite is too small. If someone can be bothered to fix that, that would be great.
-* I remember having to do special handling for Local mod support and I don't remember what it is, so might be broken, I don't know
+* I remember having to do special handling for Local Storage mod support and I don't remember what it is, so might be broken, I don't remember. 
