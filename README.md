@@ -9,10 +9,8 @@ Brson, 7zbson, and lz4bson files can be reimported into the game easily by anyon
 
 ## Installation
 1. Install [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader).
-2. Place [ExportResoniteToJson-Standalone.dll](https://github.com/LimeProgramming/ExportResoniteToJson/releases/download/2.1.3/ExportResoniteToJson-Standalone.dll) into your `rml_mods` folder **if** You *don't* use a local storage mod.
-OR
-2. Place [ExportResoniteToJson-LocalStorage.dll](https://github.com/LimeProgramming/ExportResoniteToJson/releases/download/2.1.3/ExportResoniteToJson-LocalStorage.dll) into your `rml_mods` folder **if** You *do* use a local storage mod.
-4. Start the game. If you want to verify that the mod is working you can check your Resonite logs.
+2. Place [ExportResoniteToJson.dll](https://github.com/LimeProgramming/ExportResoniteToJson/releases/download/2.1.4/ExportResoniteToJson.dll) into your `rml_mods` folder.
+3. Start the game. If you want to verify that the mod is working you can check your Resonite logs.
 
 > [!Note]
 > This is a fork of [ExportNeosToJson](https://github.com/zkxs/ExportNeosToJson) which was originally made by zkxs and updated for Resonite by Calamity Lime.
@@ -20,5 +18,6 @@ OR
 ## What does this actually do?
 It injects additional json, bson, 7zbson, and lz4bson options into the export dialog and restores importing json file into the game.
 
-## Issues
-The export window is too small. If someone can be bothered to fix that, that would be great.
+## Known Issues
+The export window in Resonite is too small. If someone can be bothered to fix that, that would be great.
+I remember having to do special handling for Local mod support and I don't remember what it is, so might be broken, I don't know
